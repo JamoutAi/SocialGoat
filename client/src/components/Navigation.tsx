@@ -46,7 +46,9 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav style={{ display: "flex", alignItems: "center", gap: "2rem" }} className="hidden md:flex">
+          {/* No inline `display` here: it would beat Tailwind's `hidden` and
+              leave the desktop links on screen at mobile widths. */}
+          <nav style={{ alignItems: "center", gap: "2rem" }} className="hidden md:flex">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 <span
