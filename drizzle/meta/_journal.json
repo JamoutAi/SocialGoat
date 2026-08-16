@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1785337082376,
+      "tag": "0000_goofy_inertia",
+      "breakpoints": true
+    }
+  ]
+}
