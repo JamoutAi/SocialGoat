@@ -288,3 +288,92 @@
     .animate-fade-up { animation: none; opacity: 1; transform: none; }
   }
 }
+
+/* ============================================================
+   RESPONSIVE LAYOUT HELPERS
+   The original design declared its multi-column grids in inline
+   styles. Inline styles beat stylesheet rules, so those layouts
+   could never collapse on a phone. The column definitions live
+   here instead, so they can respond to screen width.
+   ============================================================ */
+
+/* Two-column page splits — stacked on phones */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .split-contact { grid-template-columns: 1fr 1.6fr; gap: 4rem; }
+  .split-service { grid-template-columns: 1fr 1.5fr; gap: 4rem; }
+}
+@media (min-width: 1200px) {
+  .split-contact { gap: 6rem; }
+}
+
+/* Side-by-side form fields — stacked until there is room for two */
+.field-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 640px) {
+  .field-pair { grid-template-columns: 1fr 1fr; }
+}
+
+/* About page — the photo floats so the story wraps beside it and then
+   continues underneath, rather than being squeezed into half the width */
+.about-layout::after { content: ""; display: block; clear: both; }
+.about-photo { position: relative; margin: 0 0 3.5rem; }
+.about-body > p { margin: 0 0 1.25rem; }
+.about-body > p:last-of-type { margin-bottom: 0; }
+@media (min-width: 900px) {
+  .about-photo {
+    float: left;
+    width: 38%;
+    /* right and bottom margins clear the offset frame and the Emmy badge */
+    margin: 0.5rem 3.5rem 3rem 0;
+  }
+  /* The source photo is a tall portrait (1264x2048). At full height it towered
+     over the story, squeezing the text into a narrow column with a large dead
+     gap beside it. Capping the height balances the two and lets the closing
+     lines run the full width underneath. */
+  .about-photo img {
+    max-height: 500px;
+    object-fit: cover;
+    object-position: 50% 20%;
+  }
+}
+
+/* Behind-the-scenes gallery — four across is unreadable on a phone */
+.bts-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 165px;
+  gap: 6px;
+}
+@media (min-width: 768px) {
+  .bts-row-4 { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 240px; }
+  .bts-row-2 { grid-auto-rows: 200px; }
+}
+
+/* The pull-quote has a left border, so it must sit beside the floated photo
+   rather than running underneath it. flow-root gives it its own context. */
+.about-body > .font-quote { display: flow-root; }
+/* Buttons flow under the photo with the rest of the story; only forced below
+   it on narrow screens where the photo is full width. */
+@media (max-width: 899px) {
+  .about-actions { clear: both; }
+}
+
+/* Sticky side column only once there are two columns to be beside */
+@media (min-width: 900px) {
+  .sticky-aside { position: sticky; top: 2rem; }
+}
+
+/* On phones the photo is full width, but its offset frame and Emmy badge sit
+   outside its box and pushed the page into horizontal scroll. Leave them room. */
+@media (max-width: 899px) {
+  .about-photo { width: calc(100% - 1.75rem); }
+}

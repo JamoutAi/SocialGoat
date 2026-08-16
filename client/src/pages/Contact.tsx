@@ -108,10 +108,12 @@ export default function Contact() {
 
       <section style={{ padding: "7rem 0 6rem" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "6rem", alignItems: "start" }}>
+          <div className="split split-contact">
 
             {/* Left: Context */}
-            <div style={{ position: "sticky", top: "2rem" }}>
+            {/* Sticky only once the form sits alongside it; stacked on phones
+                it would pin over the top of the form. */}
+            <div className="sticky-aside">
               <span className="accent-line" style={{ marginBottom: "1.5rem" }} />
               <h1 className="font-display" style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", color: "#F0EDE8", lineHeight: 0.95, margin: "0 0 2rem" }}>
                 LET'S TALK<br />
@@ -154,7 +156,7 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
 
                   {/* Name + Company */}
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
+                  <div className="field-pair">
                     <div>
                       <label style={labelStyle} htmlFor="name">Your Name *</label>
                       <input
@@ -185,7 +187,7 @@ export default function Contact() {
                   </div>
 
                   {/* Email + Phone */}
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
+                  <div className="field-pair">
                     <div>
                       <label style={labelStyle} htmlFor="email">Email *</label>
                       <input

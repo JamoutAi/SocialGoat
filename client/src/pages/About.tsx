@@ -52,9 +52,9 @@ export default function About() {
       {/* ── MAIN CONTENT ──────────────────────────────────────────────────── */}
       <section style={{ padding: "6rem 0" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "start" }}>
-            {/* Photo */}
-            <div style={{ position: "relative" }}>
+          <div className="about-layout">
+            {/* Photo — floats on desktop so the story wraps around and below it */}
+            <div className="about-photo">
               <div style={{
                 position: "absolute",
                 top: "1.5rem", left: "1.5rem", right: "-1.5rem", bottom: "-1.5rem",
@@ -85,7 +85,9 @@ export default function About() {
               <h2 className="font-display" style={{ fontSize: "2.5rem", color: "#F0EDE8", margin: "0 0 1.5rem" }}>
                 THE HONEST VERSION
               </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+              {/* Normal block flow, not flex: a flex container would refuse to
+                  wrap around the floated photo and get pushed beside it instead. */}
+              <div className="about-body">
                 <p className="font-sub" style={{ fontSize: "1rem", color: "rgba(240,237,232,0.8)", lineHeight: 1.8 }}>
                   I started The Social Goat because I kept watching companies spend serious money on videos that felt like they were made by committee. Safe. Generic. Forgettable. I knew there was a better way.
                 </p>
@@ -102,7 +104,7 @@ export default function About() {
                   "I don't just want to make your video. I want to understand your business well enough that I could pitch it myself."
                 </p>
               </div>
-              <div style={{ marginTop: "2.5rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+              <div className="about-actions" style={{ marginTop: "2.5rem", display: "flex", gap: "1rem", flexWrap: "wrap" }}>
                 <Link href="/contact">
                   <button className="btn-sgf">Work With Mike →</button>
                 </Link>

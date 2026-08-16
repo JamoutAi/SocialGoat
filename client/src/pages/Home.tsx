@@ -357,25 +357,25 @@ export default function Home() {
 
           {/* Masonry-style grid */}
           {/* Editorial grid — row 1: wide + 2 narrow */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridTemplateRows: "240px", gap: "6px" }}>
+          <div className="bts-row bts-row-4">
             <BtsCell photo={BTS_PHOTOS[0]} colSpan={2} />
             <BtsCell photo={BTS_PHOTOS[1]} />
             <BtsCell photo={BTS_PHOTOS[2]} />
           </div>
           {/* Row 2: 2 narrow + wide */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridTemplateRows: "240px", gap: "6px", marginTop: "6px" }}>
+          <div className="bts-row bts-row-4" style={{ marginTop: "6px" }}>
             <BtsCell photo={BTS_PHOTOS[3]} />
             <BtsCell photo={BTS_PHOTOS[4]} />
             <BtsCell photo={BTS_PHOTOS[5]} colSpan={2} />
           </div>
           {/* Row 3: narrow + wide + narrow */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridTemplateRows: "240px", gap: "6px", marginTop: "6px" }}>
+          <div className="bts-row bts-row-4" style={{ marginTop: "6px" }}>
             <BtsCell photo={BTS_PHOTOS[6]} />
             <BtsCell photo={BTS_PHOTOS[7]} colSpan={2} />
             <BtsCell photo={BTS_PHOTOS[8]} />
           </div>
           {/* Row 4: 2 equal wide */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridTemplateRows: "200px", gap: "6px", marginTop: "6px" }}>
+          <div className="bts-row bts-row-2" style={{ marginTop: "6px" }}>
             <BtsCell photo={BTS_PHOTOS[9]} />
             <BtsCell photo={BTS_PHOTOS[10]} />
           </div>

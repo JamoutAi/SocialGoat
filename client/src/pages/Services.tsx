@@ -68,13 +68,10 @@ export default function Services() {
             {SERVICES.map((service, i) => (
               <div
                 key={i}
+                className="split split-service"
                 style={{
                   padding: "4rem 0",
                   borderBottom: "1px solid rgba(255,255,255,0.07)",
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1.5fr",
-                  gap: "4rem",
-                  alignItems: "start",
                 }}
               >
                 {/* Left: number + title */}
