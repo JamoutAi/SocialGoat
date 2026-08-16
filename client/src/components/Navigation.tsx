@@ -4,7 +4,7 @@
 
 import { Link, useLocation } from "wouter";
 
-const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/uSakOhAYRyFOmiGC.webp";
+const LOGO_URL = "/images/logo.webp";
 
 const navLinks = [
   { href: "/", label: "Home" },

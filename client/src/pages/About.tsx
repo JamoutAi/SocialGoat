@@ -6,8 +6,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 
-const MIKE_PHOTO = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/kkiCYpOLrdeLinFJ.webp";
-const ABOUT_BG = "/manus-storage/sgf-about-bg_444daa84.jpg";
+const MIKE_PHOTO = "/images/mike-anderson.webp";
+const ABOUT_BG = "/images/about-bg.webp";
 
 const CREDENTIALS = [
   { icon: "🏆", label: "Emmy Award Winner", detail: "Regional Emmy for Outstanding Achievement" },

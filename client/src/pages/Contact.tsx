@@ -5,7 +5,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import React, { useState } from "react";
-import { trpc } from "@/lib/trpc";
 
 const BUDGET_OPTIONS = [
   "Under $5,000",
@@ -45,22 +44,37 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
-  const submitMutation = trpc.contact.submit.useMutation({
-    onSuccess: () => setSubmitted(true),
-  });
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    submitMutation.mutate({
-      name: form.name,
-      company: form.company || undefined,
-      email: form.email,
-      phone: form.phone || undefined,
-      projectType: form.projectType || undefined,
-      budget: form.budget || undefined,
-      timeline: form.timeline || undefined,
-      message: form.message,
-    });
+    setIsPending(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error ?? "Something went wrong on our end.");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      // Never swallow this: a lost enquiry is a lost job.
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong on our end."
+      );
+    } finally {
+      setIsPending(false);
+    }
   };
 
   const inputStyle: React.CSSProperties = {
@@ -305,13 +319,35 @@ export default function Contact() {
                   </div>
 
                   {/* Submit */}
+                  {error && (
+                    <p
+                      role="alert"
+                      className="font-sub"
+                      style={{
+                        fontSize: "0.875rem",
+                        color: "#ff8a6b",
+                        background: "rgba(232,98,26,0.08)",
+                        border: "1px solid rgba(232,98,26,0.35)",
+                        borderRadius: "2px",
+                        padding: "0.875rem 1rem",
+                        margin: 0,
+                      }}
+                    >
+                      {error} You can also reach Mike directly at{" "}
+                      <a href="mailto:mike@socialgoat.com" style={{ color: "#E8621A" }}>
+                        mike@socialgoat.com
+                      </a>
+                      .
+                    </p>
+                  )}
+
                   <button
                     type="submit"
-                    disabled={submitMutation.isPending}
+                    disabled={isPending}
                     className="btn-sgf"
-                    style={{ fontSize: "1rem", padding: "1.125rem", justifyContent: "center", opacity: submitMutation.isPending ? 0.7 : 1 }}
+                    style={{ fontSize: "1rem", padding: "1.125rem", justifyContent: "center", opacity: isPending ? 0.7 : 1 }}
                   >
-                    {submitMutation.isPending ? "Sending..." : "Send It Over →"}
+                    {isPending ? "Sending..." : "Send It Over →"}
                   </button>
 
                   <p className="font-sub" style={{ fontSize: "0.75rem", color: "rgba(240,237,232,0.35)", textAlign: "center" }}>

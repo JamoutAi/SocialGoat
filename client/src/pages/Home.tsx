@@ -8,32 +8,32 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 // ─── Asset URLs ───────────────────────────────────────────────────────────────
-const HERO_BG = "/manus-storage/sgf-hero-bg_d0a56421.jpg";
-const CTA_BG = "/manus-storage/sgf-cta-bg_53c3c525.jpg";
+const HERO_BG = "/images/hero-bg.webp";
+const CTA_BG = "/images/cta-bg.webp";
 
 // BTS photos from the original site
 const BTS_PHOTOS = [
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/ZYHaZNBNNvyxUtSp.JPG", alt: "Video production crew filming corporate interview" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/dafcRinoApJJENiE.webp", alt: "Cinematographer operating RED camera" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/HGeCFtZwuBUKzFET.webp", alt: "Video production team setting up cinema camera" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/MEQIoozgJAIVMgak.jpeg", alt: "Corporate event videography multi-camera setup" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/DMzAMJTqkINKbvCE.webp", alt: "Director of photography reviewing footage" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/nxkrxXoTiyGtgtSp.jpeg", alt: "Video crew filming outdoor commercial" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/WBqDubTxCvscYxmF.jpeg", alt: "Cinematographer capturing B-roll footage" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/DiLlDhRWOJFZoWnc.jpg", alt: "Camera operator with stabilized gimbal rig" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/iPIqqKxlpjXlFOQt.jpg", alt: "Video crew setting up lighting for executive interview" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/UOQtZWLmMTeyCDXO.jpg", alt: "Commercial video production with professional film crew" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/YObypTDyhdcOfwCj.jpg", alt: "Cinematographer operating cinema camera" },
+  { src: "/images/bts-corporate-interview.jpg", alt: "Video production crew filming corporate interview" },
+  { src: "/images/bts-red-camera.webp", alt: "Cinematographer operating RED camera" },
+  { src: "/images/bts-cinema-camera-setup.webp", alt: "Video production team setting up cinema camera" },
+  { src: "/images/bts-event-multicam.webp", alt: "Corporate event videography multi-camera setup" },
+  { src: "/images/bts-dp-reviewing-footage.webp", alt: "Director of photography reviewing footage" },
+  { src: "/images/bts-outdoor-commercial.webp", alt: "Video crew filming outdoor commercial" },
+  { src: "/images/bts-broll.webp", alt: "Cinematographer capturing B-roll footage" },
+  { src: "/images/bts-gimbal-rig.webp", alt: "Camera operator with stabilized gimbal rig" },
+  { src: "/images/bts-executive-interview-lighting.webp", alt: "Video crew setting up lighting for executive interview" },
+  { src: "/images/bts-commercial-crew.webp", alt: "Commercial video production with professional film crew" },
+  { src: "/images/bts-cinema-camera-operator.webp", alt: "Cinematographer operating cinema camera" },
 ];
 
 // Client logos
 const CLIENT_LOGOS = [
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/QULrsCfmoNpzaEml.png", alt: "Meow Wolf" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/yEXGBMSApYerokXt.png", alt: "Prologis" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/nxDlvRrPrnWpSyYw.png", alt: "American Heart Association" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/FlWjgdLgyELrKtxn.png", alt: "UCHealth" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/JPxQreWVZUfLixMK.png", alt: "Boeing" },
-  { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663031092242/LjgoILnhmhMbbDtd.png", alt: "Gogo" },
+  { src: "/images/client-meow-wolf.webp", alt: "Meow Wolf" },
+  { src: "/images/client-prologis.webp", alt: "Prologis" },
+  { src: "/images/client-american-heart-association.webp", alt: "American Heart Association" },
+  { src: "/images/client-uchealth.webp", alt: "UCHealth" },
+  { src: "/images/client-boeing.webp", alt: "Boeing" },
+  { src: "/images/client-gogo.webp", alt: "Gogo" },
 ];
 
 // Featured Vimeo work
@@ -67,19 +67,19 @@ const TESTIMONIALS = [
     quote: "The Social Goat brought our immersive art experience to life through stunning video production. Their creative vision perfectly captured the essence of Meow Wolf.",
     name: "Gleana Albritton",
     title: "Meow Wolf",
-    photo: "https://images.squarespace-cdn.com/content/v1/602330acfda5e94f54de4460/03a79347-64c2-4202-8fb0-0150877b45c0/Gleanna.jpeg",
+    photo: "/images/testimonial-gleanna.webp",
   },
   {
     quote: "Working with Mike and his team was exceptional. They understood our brand story and delivered a video that exceeded all expectations.",
     name: "Karl Siebrecht",
     title: "CEO",
-    photo: "https://images.squarespace-cdn.com/content/v1/602330acfda5e94f54de4460/f121e3d2-5d5c-41da-b0e5-7bfbe843a285/karl.jpeg",
+    photo: "/images/testimonial-karl.webp",
   },
   {
     quote: "The documentary-style video The Social Goat created for us was powerful and authentic. It helped us connect with our audience on a deeper level.",
     name: "Rachel Farha",
     title: "CEO, Better Together",
-    photo: "https://images.squarespace-cdn.com/content/v1/602330acfda5e94f54de4460/979e7d1a-5553-4dad-8d6d-01816519234e/Rachel.jpeg",
+    photo: "/images/testimonial-rachel.webp",
   },
 ];
 
